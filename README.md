@@ -70,3 +70,20 @@ make
 # Number of duplicate tasks 8 (on 8 cores)
 ./run.sh 30 4096 8
 ```
+
+## NOTES:
+- Orin-NX 16GB
+```bash
+# 49% memory utilization with EMC=3199Mhz
+./run.sh 30 4096 8
+
+# 25% memory utilization with EMC=3199Mhz
+./run.sh 30 4096 4
+
+# 49% memory utilization with EMC=2133Mhz
+./run.sh 30 4096 6
+
+# 24% memory utilization with EMC=2133Mhz
+./run.sh 30 4096 2
+```
+
