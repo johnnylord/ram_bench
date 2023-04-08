@@ -13,6 +13,12 @@
 
 #endif
 
+#ifndef RANDOM_MODE
+
+#define RANDOM_MODE 1
+
+#endif
+
 typedef uint64_t Int;
 
 typedef struct Node Node;
@@ -44,7 +50,8 @@ double read_bench(Int N, Int iters) {
 	}
 
 	// Shuffle the node pointers to mimic random access in the test
-	random_shuffle(nodes, N);
+	if (RANDOM_MODE)
+		random_shuffle(nodes, N);
 
 	// Link up the nodes so that when traversing the nodes, we are traversing in random order.
 	for (Int i=0; i<N-1; ++i) {
@@ -90,7 +97,8 @@ double write_bench(Int N, Int iters) {
 	}
 
 	// Shuffle the node pointers to mimic random access in the test
-	random_shuffle(nodes, N);
+	if (RANDOM_MODE)
+		random_shuffle(nodes, N);
 
 	// Link up the nodes so that when traversing the nodes, we are traversing in random order.
 	for (Int i=0; i<N-1; ++i) {
